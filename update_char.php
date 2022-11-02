@@ -22,6 +22,7 @@
         $promotion = $_POST['promotion'];
         $price = $_POST['price'];
         $description = $_POST['description'];
+        $waktu_upload = date('Y-m-d',strtotime("today"));
 
         $format_file = $_FILES['gambar']['name'];
         $tmp_name = $_FILES['gambar']['tmp_name'];
@@ -34,7 +35,7 @@
 
         if($size < $max_size){
             move_uploaded_file($tmp_name, 'gambar/'.$rename);
-            $sql = "UPDATE characters  SET nama='$nama', damage='$damage', health='$health', rank='$rank', promotion='$promotion', price='$price', description='$description', gambar='$rename' WHERE id=$id";
+            $sql = "UPDATE characters  SET nama='$nama', damage='$damage', health='$health', rank='$rank', promotion='$promotion', price='$price', description='$description', gambar='$rename', waktu_upload='$waktu_upload' WHERE id=$id";
             $result = mysqli_query($conn, $sql);
 
         if ($result){
@@ -68,7 +69,7 @@
     <div class="content">
     <h1>Update Character</h1>
     <br><hr><br>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>Character Name</td>
@@ -123,7 +124,7 @@
                 <tr>
                     <td>Character Leak</td>
                     <td>:</td>
-                    <input type="file" name="gambar">
+                    <td><input type="file" name="gambar"></td>
                 </tr>
                 <tr>
                     <td></td>
