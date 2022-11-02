@@ -1,9 +1,6 @@
 <!-- create -->
 
 <?php
-
-use function PHPSTORM_META\type;
-
     require "koneksi.php";
     $characters = [];
     
@@ -32,12 +29,11 @@ use function PHPSTORM_META\type;
         $type2 = $type[1];
         $rename = "$nama.$type2";
         $format_foto = array('jpg', 'png', 'jpeg');
-        $max_size = 30000000;
+        $max_size = 3000000;
 
         if($size < $max_size){
             move_uploaded_file($tmp_name, 'gambar/'.$rename);
-            $sql = "INSERT INTO characters VALUES ('$id','$rename','$nama','$damage','$health','$rank','$promotion','$price','$description',date '$waktu_upload')";
-        
+            $sql = "INSERT INTO characters VALUES ('$id','$nama','$damage','$health','$rank','$promotion','$price','$description','$rename','$waktu_upload')";
             $result = mysqli_query($conn, $sql);
 
         if ($result){
@@ -71,7 +67,7 @@ use function PHPSTORM_META\type;
         <h1>Injustice Characters</h1>
         <br>
         <p>Add ur powerfull Injustice Character</p><br><hr><br>
-        <form action="add_char.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>Character Name</td>
