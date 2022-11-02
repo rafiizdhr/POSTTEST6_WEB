@@ -48,7 +48,8 @@
             <td><?php echo $char['promotion']; ?></td>
             <td><?php echo $char['price']; ?></td>
             <td><?php echo $char['description']; ?></td>
-            <td><?php '<image src="gambar/'.$char['gambar']; ?></td>
+            <td><img width ="100px" src="gambar/<?php echo $char['gambar']; ?>" alt=""></td>
+            <td><?php echo $char['waktu_upload'];?></td>
             <td align="center">
                 <a href="update_char.php?id=<?php echo $char['id'];?>"><button>UPDATE</button></a>
                 <a href="del_char.php?id=<?php echo $char['id'];?>"><button>DELETE</button></a>
